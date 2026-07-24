@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Nicolle ❤️</title>
+  <!-- Fuente elegante desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #feada6 100%);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Mensaje superior */
+    .title {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 400;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Envoltorio del corazón principal */
+    .heart-container {
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.1s ease;
+      animation: pulse 1.6s infinite ease-in-out;
+    }
+
+    .heart-container:active {
+      transform: scale(0.92);
+    }
+
+    /* Forma del Corazón Principal */
+    .main-heart {
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(45deg, #ff3366, #ff6b81);
+      position: relative;
+      transform: rotate(-45deg);
+      box-shadow: 0 15px 35px rgba(255, 51, 102, 0.4);
+      border-radius: 10px;
+    }
+
+    .main-heart::before,
+    .main-heart::after {
+      content: '';
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(45deg, #ff3366, #ff6b81);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .main-heart::before {
+      top: -110px;
+      left: 0;
+    }
+
+    .main-heart::after {
+      left: 110px;
+      top: 0;
+    }
+
+    /* Nombre dentro del corazón */
+    .name-text {
+      position: absolute;
+      z-index: 10;
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+      text-align: center;
+    }
+
+    /* Subtexto explicativo al pie */
+    .hint {
+      position: absolute;
+      bottom: 40px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 18px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    /* Animación de latido suave */
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.06);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Estilo de los corazones flotantes generados dinámicamente */
+    .floating-heart {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1.5rem;
+      animation: floatUp 1.8s forwards cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 20;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.6) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1.4) rotate(var(--rot));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">Toca el corazón</div>
+
+  <div class="heart-container" id="heartBtn">
+    <div class="main-heart"></div>
+    <span class="name-text">Nicolle</span>
+  </div>
+
+  <script>
+    const heartBtn = document.getElementById('heartBtn');
+    const heartIcons = ['❤️', '💖', '💕', '💗', '💓', '✨'];
+
+    heartBtn.addEventListener('click', (e) => {
+      // Determinar el punto de origen del clic o toque
+      const rect = heartBtn.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Generar varios corazones por cada toque
+      const totalHearts = 12;
+
+      for (let i = 0; i < totalHearts; i++) {
+        createFloatingHeart(centerX, centerY);
+      }
+    });
+
+    function createFloatingHeart(x, y) {
+      const heart = document.createElement('span');
+      heart.classList.add('floating-heart');
+
+      // Seleccionar un icono al azar
+      heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+
+      // Posicionar en el centro del corazón
+      heart.style.left = `${x}px`;
+      heart.style.top = `${y}px`;
+
+      // Trayectorias aleatorias en direcciones variadas (en píxeles)
+      const tx = (Math.random() - 0.5) * 260; // Desplazamiento horizontal
+      const ty = -(Math.random() * 200 + 100); // Desplazamiento vertical hacia arriba
+      const rot = (Math.random() - 0.5) * 90; // Rotación ligera
+
+      heart.style.setProperty('--tx', `${tx}px`);
+      heart.style.setProperty('--ty', `${ty}px`);
+      heart.style.setProperty('--rot', `${rot}deg`);
+
+      // Variar el tamaño del corazón
+      const size = Math.random() * 1.2 + 1; // de 1rem a 2.2rem
+      heart.style.fontSize = `${size}rem`;
+
+      document.body.appendChild(heart);
+
+      // Eliminar el elemento del DOM al terminar la animación
+      setTimeout(() => {
+        heart.remove();
+      }, 1800);
+    }
+  </script>
+</body>
+</html>
