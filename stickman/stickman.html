@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stickman</title>
+  <!-- Vinculación al archivo CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="stick-scene">
+      
+      <!-- Globo de Pensamiento -->
+      <div class="thought-bubble">
+        <p>te quiero muchooooo, PRECIOSAAAAA❤️</p>
+        <div class="thought-dot-1"></div>
+        <div class="thought-dot-2"></div>
+      </div>
+
+      <!-- Corazoncitos cerca de la chica -->
+      <div class="hearts-container">
+        <span class="heart">♥</span>
+        <span class="heart">♥</span>
+      </div>
+
+      <!-- Dibujo SVG de los Stickmen -->
+      <svg class="stick-svg" viewBox="0 0 320 300" fill="none" stroke="#2c3e50" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+        
+        <!-- ================= HOMBRE (MÁS GRANDE - IZQUIERDA) ================= -->
+        <g id="man">
+          <!-- Cabeza -->
+          <circle cx="110" cy="110" r="24" fill="#ffffff" />
+          
+          <!-- Ojos y Sonrisa -->
+          <circle cx="103" cy="106" r="1.8" fill="#2c3e50" stroke="none" />
+          <circle cx="117" cy="106" r="1.8" fill="#2c3e50" stroke="none" />
+          <path d="M 104 118 Q 110 124 116 118" stroke-width="3" />
+
+          <!-- Cuerpo -->
+          <line x1="110" y1="134" x2="110" y2="210" />
+
+          <!-- Brazo izquierdo (al costado) -->
+          <path d="M 110 148 L 82 175" />
+
+          <!-- Brazo derecho (sosteniendo la mano de ella) -->
+          <path d="M 110 152 L 142 178 L 180 180" />
+
+          <!-- Pierna izquierda -->
+          <line x1="110" y1="210" x2="88" y2="275" />
+
+          <!-- Pierna derecha -->
+          <line x1="110" y1="210" x2="130" y2="275" />
+        </g>
+
+        <!-- ================= MUJER (MÁS PEQUEÑA - DERECHA) ================= -->
+        <g id="woman">
+          <!-- Cabeza -->
+          <circle cx="210" cy="140" r="19" fill="#ffffff" />
+
+          <!-- Ojos felices (arcos) y Sonrisa -->
+          <path d="M 202 137 Q 205 133 208 137" stroke-width="2.5" />
+          <path d="M 213 137 Q 216 133 219 137" stroke-width="2.5" />
+          <path d="M 206 146 Q 210 150 214 146" stroke-width="2.5" />
+
+          <!-- Moño o Lazo rosa en la cabeza -->
+          <path d="M 218 120 L 226 114 L 224 124 Z" fill="#ff6b81" stroke="#ff6b81" stroke-width="1" />
+          <path d="M 218 120 L 226 126 L 222 118 Z" fill="#ff6b81" stroke="#ff6b81" stroke-width="1" />
+          <circle cx="218" cy="120" r="2.5" fill="#ff4757" stroke="none" />
+
+          <!-- Cuerpo (Vestido) -->
+          <line x1="210" y1="159" x2="210" y2="182" />
+          <path d="M 210 182 L 192 222 L 228 222 Z" fill="#ffffff" />
+
+          <!-- Brazo izquierdo (tomada de la mano de él) -->
+          <path d="M 204 170 L 180 180" />
+
+          <!-- Brazo derecho (un poco levantado, feliz) -->
+          <path d="M 216 170 L 236 186" />
+
+          <!-- Piernas -->
+          <line x1="202" y1="222" x2="198" y2="275" />
+          <line x1="218" y1="222" x2="222" y2="275" />
+        </g>
+
+        <!-- Detalle de unión de manos -->
+        <circle cx="180" cy="180" r="3.5" fill="#2c3e50" stroke="none" />
+      </svg>
+
+    </div>
+
+  </div>
+
+  <a href="../index.html" class="btn-volver">← Volver al Menú</a>
+
+</body>
+</html>
