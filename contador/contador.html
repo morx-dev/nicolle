@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contador</title>
+    <!-- Fuentes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Estilos de la tarjeta -->
+    <link rel="stylesheet" href="css/contador.css">
+</head>
+<body>
+
+    <div class="container">
+        <a href="../index.html" class="back-btn">← volver al inicio</a>
+
+        <header class="header">
+            <h1>desde que te hablé por primera vez</h1>
+            <p>"con todo respeto, que hermosa eres..."</p>
+            <span class="date-badge">25 de junio de 2026</span>
+        </header>
+
+        <!-- Bloque del Contador en Tiempo Real -->
+        <div class="timer-card">
+            <div class="timer-grid">
+                <div class="time-box">
+                    <span id="days" class="number">0</span>
+                    <span class="label">días</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours" class="number">00</span>
+                    <span class="label">horas</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes" class="number">00</span>
+                    <span class="label">minutos</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds" class="number">00</span>
+                    <span class="label">segundos</span>
+                </div>
+            </div>
+            <p class="love-message">amando cada momento contigo.</p>
+        </div>
+    </div>
+
+    <!-- Script del Contador -->
+    <script src="js/contador.js"></script>
+</body>
+</html>
