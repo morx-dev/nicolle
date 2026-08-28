@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>galería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <a href="../index.html" class="back-btn">← volver al inicio</a>
+
+        <header class="header">
+            <h1>galería de mí princesa hermosa.</h1>
+            <p>SIEMPRE seré tu más GRANDE fan.</p>
+        </header>
+
+        <!-- Galería Pinterest (grid con tamaños variados) -->
+        <div class="masonry-grid" id="masonryGrid">
+
+            <div class="gallery-item">
+                <img src="img/1.jpeg" alt="Momento especial" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="gallery-item item-tall">
+                <img src="img/2.jpeg" alt="Momento especial" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="gallery-item item-big">
+                <img src="img/3.jpeg" alt="Momento especial" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/4.jpeg" alt="Momento especial" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="gallery-item item-wide">
+                <img src="img/5.jpeg" alt="Momento especial" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="gallery-item item-tall">
+                <img src="img/6.jpeg" alt="Momento especial" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="img/7.jpeg" alt="Nicolle de bebé" loading="lazy">
+                <div class="overlay"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal para ver la imagen en pantalla completa -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-nav">
+            <button id="prevBtn" class="nav-btn">&#10094;</button>
+            <button id="nextBtn" class="nav-btn">&#10095;</button>
+        </div>
+        <img class="modal-content" id="imgFull">
+    </div>
+
+    <script src="js/galeria.js"></script>
+</body>
+</html>
