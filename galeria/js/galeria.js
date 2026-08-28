@@ -1,6 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const items = Array.from(document.querySelectorAll('.gallery-item'));
+    // --- Orden aleatorio de la galería ---
+    const grid = document.getElementById('masonryGrid');
     const modal = document.getElementById('imageModal');
+
+    function shuffleGallery() {
+        if (!grid) return;
+        // No reordenar mientras el modal está abierto, para no confundir al usuario
+        if (modal && modal.style.display === 'flex') return;
+
+        const gridItems = Array.from(grid.querySelectorAll('.gallery-item'));
+
+        // Fisher-Yates shuffle
+        for (let i = gridItems.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [gridItems[i], gridItems[j]] = [gridItems[j], gridItems[i]];
+        }
+
+        // Vuelve a insertarlos en el nuevo orden dentro del grid
+        gridItems.forEach(item => grid.appendChild(item));
+    }
+
+    shuffleGallery();                    // orden aleatorio al cargar la página
+    setInterval(shuffleGallery, 7000);   // y luego cada 7 segundos
+
+    const items = Array.from(document.querySelectorAll('.gallery-item'));
     const modalImg = document.getElementById('imgFull');
     const closeBtn = document.querySelector('.close-modal');
     const prevBtn = document.getElementById('prevBtn');
